@@ -24,3 +24,17 @@ export const registerSchema = Joi.object({
     "any.only": "Confirm Password khong khop voi Password",
   }),
 });
+
+export const signinSchema = Joi.object({
+  email: Joi.string().required().email().trim().messages({
+    "any.required": "Email la truong bat buoc",
+    "string.empty": "Email khong duoc de trong",
+    "string.email": "Email khong dung dinh dang",
+    "string.trim": "Email khong duoc chua khoang trang",
+  }),
+  password: Joi.string().required().trim().messages({
+    "any.required": "Password la truong bat buoc",
+    "string.empty": "Password khong duoc de trong",
+    "string.trim": "Password khong duoc chua khoang trang",
+  }),
+});
